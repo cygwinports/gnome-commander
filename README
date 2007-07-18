@@ -17,6 +17,7 @@ Runtime requirements:
   libgnomeui2-2.18.1-1
   libgsf114-1.14.5-1
   libintl8-0.15-1
+  libiptcdata0-1.0.2-1
   pango-1.16.4-1
   python-2.5.1-3
   python-gnomevfs2-2.18.2-1
