@@ -1,5 +1,5 @@
-category: Gnome Utils
-requires: cygwin glib2 gnome-vfs2 gtk2-x11 id3lib libexif12 libgnome2 libgnomeui2 libgsf114 libintl8 libiptcdata0 pango python python-gnomevfs2
+category: Gnome
+requires: cygwin glib2 gdk-pixbuf2 gnome-vfs2 gtk2-x11 libexiv2_2 libgnome2 libgnomeui2 libgsf114 libintl8 pango python python-gnomevfs2 taglib
 sdesc: "GNOME two-pane file manager"
 ldesc: "GNOME Commander is a two-pane graphical filemanager for the Gnome
 desktop environment. GNOME Commander aims to fulfill the demands of more
