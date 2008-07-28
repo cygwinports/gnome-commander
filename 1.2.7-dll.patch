@@ -1,0 +1,19 @@
+--- origsrc/gnome-commander-1.2.7/src/plugin_manager.cc	2008-02-07 12:24:21.000000000 -0600
++++ src/gnome-commander-1.2.7/src/plugin_manager.cc	2008-07-28 17:13:06.406250000 -0500
+@@ -164,14 +164,14 @@
+     {
+         struct stat buf;
+ 
+-        if (strcmp (ent->d_name+strlen(ent->d_name)-3, ".so") != 0)
++        if (strcmp (ent->d_name+strlen(ent->d_name)-strlen("."G_MODULE_SUFFIX), "."G_MODULE_SUFFIX) != 0)
+             continue;
+ 
+         if (stat (ent->d_name, &buf) == 0)
+         {
+             if (buf.st_mode & S_IFREG)
+             {
+-                // the direntry has the .so extension and is a regular file, lets accept it
++                // the direntry has the correct extension and is a regular file, lets accept it
+                 PluginData *data = g_new0 (PluginData, 1);
+                 data->fname = g_strdup (ent->d_name);
+                 data->fpath = g_build_path (G_DIR_SEPARATOR_S, dpath, ent->d_name, NULL);

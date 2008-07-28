@@ -6,18 +6,20 @@ advanced users who like to focus on file management, their work through
 special applications and running smart commands.
 
 Runtime requirements:
-  cygwin-1.5.25-11
-  gdk-pixbuf2-2.12.9-1
-  glib2-2.16.3-1
+  cygwin-1.5.25-15
+  cvs
+  file-roller
+  gdk-pixbuf2-2.12.11-1
+  glib2-2.16.5-1
   gnome-vfs2-2.22.0-1
-  gtk2-x11-2.12.9-1
+  gtk2-x11-2.12.11-1
   libexiv2_4-0.17-1
   libgnome2-2.22.0-1
   libgnomeui2-2.22.1-1
   libgsf114-1.14.8-1
   libintl8-0.15-1
-  pango-1.18.4-1
-  python-2.5.2-1
+  pango-1.20.5-1
+  python-2.5.2-2
   python-gnomevfs2-2.22.1-1
   taglib-1.5-1
 
@@ -25,16 +27,16 @@ Build requirements:
 (besides corresponding -devel packages)
   autoconf2.5-2.61-1
   automake1.10-1.10.1-1
-  binutils-20080523-1
-  cygport-0.3.11-1
-  gawk-3.1.5-4
+  binutils-20080523-2
+  cygport-0.3.12-1
+  gawk-3.1.6-1
   gcc-core-3.4.4-3
   gnome-common-2.20.0-2
   gnome-doc-utils-0.12.2-1
-  intltool-0.37.1-1
+  intltool-0.40.3-1
   libtool-2.2.2-2
   make-3.81-1
-  pkg-config-0.21-1
+  pkg-config-0.23a-2
   rarian-0.8.0-1
   sed-4.1.5-2
 
@@ -47,15 +49,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack gnome-commander-1.2.6-X-src.tar.bz2
+  unpack gnome-commander-1.2.7-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./gnome-commander-1.2.6-X.cygport all
+  cygport ./gnome-commander-1.2.7-X.cygport all
 
 This will create:
-  /usr/src/gnome-commander-1.2.6-X-src.tar.bz2
-  /usr/src/gnome-commander-1.2.6-X.tar.bz2
+  /usr/src/gnome-commander-1.2.7-X-src.tar.bz2
+  /usr/src/gnome-commander-1.2.7-X.tar.bz2
 
 -------------------------------------------
 
@@ -77,14 +79,14 @@ Files included in the binary package:
   /usr/lib/libgcmd.dll.a
   /usr/lib/libgcmd.la
   /usr/share/applications/gnome-commander.desktop
-  /usr/share/doc/gnome-commander-1.2.6/AUTHORS
-  /usr/share/doc/gnome-commander-1.2.6/BUGS
-  /usr/share/doc/gnome-commander-1.2.6/COPYING
-  /usr/share/doc/gnome-commander-1.2.6/ChangeLog
-  /usr/share/doc/gnome-commander-1.2.6/INSTALL
-  /usr/share/doc/gnome-commander-1.2.6/NEWS
-  /usr/share/doc/gnome-commander-1.2.6/README
-  /usr/share/doc/gnome-commander-1.2.6/TODO
+  /usr/share/doc/gnome-commander-1.2.7/AUTHORS
+  /usr/share/doc/gnome-commander-1.2.7/BUGS
+  /usr/share/doc/gnome-commander-1.2.7/COPYING
+  /usr/share/doc/gnome-commander-1.2.7/ChangeLog
+  /usr/share/doc/gnome-commander-1.2.7/INSTALL
+  /usr/share/doc/gnome-commander-1.2.7/NEWS
+  /usr/share/doc/gnome-commander-1.2.7/README
+  /usr/share/doc/gnome-commander-1.2.7/TODO
   /usr/share/gnome/help/gnome-commander/C/figures/create_archive.png
   /usr/share/gnome/help/gnome-commander/C/figures/dev_cd.png
   /usr/share/gnome/help/gnome-commander/C/figures/extract_archive.png
@@ -244,6 +246,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 1.2.7-1 -----
+Version bump.
 
 ----- version 1.2.6-1 -----
 Version bump.
