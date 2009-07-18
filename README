@@ -6,38 +6,42 @@ advanced users who like to focus on file management, their work through
 special applications and running smart commands.
 
 Runtime requirements:
-  cygwin-1.5.25-15
+  cygwin-1.7.0-51
   cvs
   file-roller
-  libexiv2_5-0.18-1
-  libgdk_pixbuf2.0_0-2.14.6-1
-  libglib2.0_0-2.18.3-1
-  libgnome2_0-2.24.0-1
-  libgnomeui2_0-2.24.0-1
-  libgnomevfs2_0-2.24.0-1
-  libgsf1_114-1.14.10-1
-  libgtk2.0_0-2.14.6-1
-  libintl8-0.17-2
-  libpango1.0_0-1.22.4-1
-  libtag1-1.5-2
-  python-2.5.4-1
-  python-gnomevfs2-2.22.3-1
+  libexiv2_5-0.18.1-1
+  libgcc1-4.3.2-2
+  libgdk_pixbuf2.0_0-2.16.2-1
+  libglib2.0_0-2.20.3-1
+  libgnome2_0-2.26.0-1
+  libgnomeui2_0-2.24.1-1
+  libgnomevfs2_0-2.24.1-1
+  libgsf1_114-1.14.14-1
+  libgtk2.0_0-2.16.2-1
+  libintl8-0.17-11
+  libpango1.0_0-1.24.2-1
+  libpoppler4-0.10.7-1
+  libstdc++6-4.3.2-2
+  libtag1-1.5-10
+  python-2.5.4-10
+  python-gnomevfs2-2.26.1-1
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-1
-  automake1.10-1.10.1-2
-  binutils-20080624-2
-  cygport-0.4.4-1
-  gawk-3.1.6-1
-  gcc-core-3.4.4-3
-  gnome-common-2.24.0-1
-  gnome-doc-utils-0.14.0-1
-  intltool-0.40.5-1
-  libtool-2.2.6a-1
-  make-3.81-1
-  pkg-config-0.23a-2
-  rarian-0.8.1-1
+  autoconf2.5-2.63-10
+  automake1.10-1.10.2-10
+  binutils-2.19.51-1
+  cygport-0.9.7-1
+  gawk-3.1.6-2
+  gcc4-core-4.3.2-2
+  gcc4-g++-4.3.2-2
+  gnome-common-2.26.0-2
+  gnome-doc-utils-0.16.1-2
+  intltool-0.40.6-1
+  libtool-2.2.7a-14
+  make-3.81-2
+  pkg-config-0.23b-10
+  rarian-0.8.1-11
   sed-4.1.5-2
 
 Canonical website:
@@ -49,21 +53,21 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack gnome-commander-1.2.7-X-src.tar.bz2
+  unpack gnome-commander-1.2.8-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./gnome-commander-1.2.7-X.cygport all
+  cygport ./gnome-commander-1.2.8-X.cygport all
 
 This will create:
-  /usr/src/gnome-commander-1.2.7-X-src.tar.bz2
-  /usr/src/gnome-commander-1.2.7-X.tar.bz2
+  /usr/src/gnome-commander-1.2.8-X-src.tar.bz2
+  /usr/src/gnome-commander-1.2.8-X.tar.bz2
 
 -------------------------------------------
 
 Files included in the binary package:
 
-  /usr/bin/cyggcmd-1-2-7.dll
+  /usr/bin/cyggcmd-1-2-8.dll
   /usr/bin/gcmd-block.exe
   /usr/bin/gnome-commander.exe
   /usr/lib/gnome-commander/plugins/cygcvs.dll
@@ -79,14 +83,13 @@ Files included in the binary package:
   /usr/lib/libgcmd.dll.a
   /usr/lib/libgcmd.la
   /usr/share/applications/gnome-commander.desktop
-  /usr/share/doc/gnome-commander-1.2.7/AUTHORS
-  /usr/share/doc/gnome-commander-1.2.7/BUGS
-  /usr/share/doc/gnome-commander-1.2.7/COPYING
-  /usr/share/doc/gnome-commander-1.2.7/ChangeLog
-  /usr/share/doc/gnome-commander-1.2.7/INSTALL
-  /usr/share/doc/gnome-commander-1.2.7/NEWS
-  /usr/share/doc/gnome-commander-1.2.7/README
-  /usr/share/doc/gnome-commander-1.2.7/TODO
+  /usr/share/doc/gnome-commander/AUTHORS
+  /usr/share/doc/gnome-commander/BUGS
+  /usr/share/doc/gnome-commander/COPYING
+  /usr/share/doc/gnome-commander/ChangeLog
+  /usr/share/doc/gnome-commander/NEWS
+  /usr/share/doc/gnome-commander/README
+  /usr/share/doc/gnome-commander/TODO
   /usr/share/gnome/help/gnome-commander/C/figures/create_archive.png
   /usr/share/gnome/help/gnome-commander/C/figures/dev_cd.png
   /usr/share/gnome/help/gnome-commander/C/figures/extract_archive.png
@@ -111,6 +114,54 @@ Files included in the binary package:
   /usr/share/gnome/help/gnome-commander/C/figures/mounting.png
   /usr/share/gnome/help/gnome-commander/C/gnome-commander.xml
   /usr/share/gnome/help/gnome-commander/C/legal.xml
+  /usr/share/gnome/help/gnome-commander/de/figures/create_archive.png
+  /usr/share/gnome/help/gnome-commander/de/figures/dev_cd.png
+  /usr/share/gnome/help/gnome-commander/de/figures/extract_archive.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_adv_rename.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_bookmark.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_file_metadata.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_file_permissions.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_file_properties.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_keyboard_shortcuts.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_remote_connections.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_remote_server.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_dialog_search.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_confirmation.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_devices.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_filters.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_format.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_general.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_layout.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_network.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_options_programs.png
+  /usr/share/gnome/help/gnome-commander/de/figures/gnome-commander_window.png
+  /usr/share/gnome/help/gnome-commander/de/figures/mounting.png
+  /usr/share/gnome/help/gnome-commander/de/gnome-commander.xml
+  /usr/share/gnome/help/gnome-commander/de/legal.xml
+  /usr/share/gnome/help/gnome-commander/es/figures/create_archive.png
+  /usr/share/gnome/help/gnome-commander/es/figures/dev_cd.png
+  /usr/share/gnome/help/gnome-commander/es/figures/extract_archive.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_adv_rename.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_bookmark.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_file_metadata.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_file_permissions.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_file_properties.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_keyboard_shortcuts.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_remote_connections.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_remote_server.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_dialog_search.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_confirmation.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_devices.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_filters.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_format.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_general.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_layout.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_network.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_options_programs.png
+  /usr/share/gnome/help/gnome-commander/es/figures/gnome-commander_window.png
+  /usr/share/gnome/help/gnome-commander/es/figures/mounting.png
+  /usr/share/gnome/help/gnome-commander/es/gnome-commander.xml
+  /usr/share/gnome/help/gnome-commander/es/legal.xml
   /usr/share/locale/ar/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/bg/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/ca/LC_MESSAGES/gnome-commander.mo
@@ -129,6 +180,7 @@ Files included in the binary package:
   /usr/share/locale/hr/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/hu/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/it/LC_MESSAGES/gnome-commander.mo
+  /usr/share/locale/ja/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/nb/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/ne/LC_MESSAGES/gnome-commander.mo
   /usr/share/locale/nl/LC_MESSAGES/gnome-commander.mo
@@ -152,6 +204,8 @@ Files included in the binary package:
   /usr/share/locale/zh_TW/LC_MESSAGES/gnome-commander.mo
   /usr/share/man/man1/gnome-commander.1.gz
   /usr/share/omf/gnome-commander/gnome-commander-C.omf
+  /usr/share/omf/gnome-commander/gnome-commander-de.omf
+  /usr/share/omf/gnome-commander/gnome-commander-es.omf
   /usr/share/pixmaps/gnome-commander.png
   /usr/share/pixmaps/gnome-commander/copy_file_names.xpm
   /usr/share/pixmaps/gnome-commander/device-icons/bluetooth.xpm
@@ -233,9 +287,7 @@ Files included in the binary package:
   /usr/share/pixmaps/gnome-commander/nautilus.svg
   /usr/share/pixmaps/gnome-commander/overlay_symlink.xpm
   /usr/share/pixmaps/gnome-commander/overlay_umount.xpm
-  /usr/share/pixmaps/gnome-commander/parent_dir.xpm
   /usr/share/pixmaps/gnome-commander/python.svg
-  /usr/share/pixmaps/gnome-commander/root_dir.xpm
   /usr/share/pixmaps/gnome-commander/rotate-180-16.xpm
   /usr/share/pixmaps/gnome-commander/rotate-270-16.xpm
   /usr/share/pixmaps/gnome-commander/rotate-90-16.xpm
@@ -247,17 +299,8 @@ Files included in the binary package:
 
 Port Notes:
 
------ version 1.2.7-2 -----
-Rebuilt with exiv2-0.18.
-
------ version 1.2.7-1 -----
-Version bump.
-
------ version 1.2.6-1 -----
-Version bump.
-
------ version 1.2.4-1 -----
-Initial release for Cygwin.
+----- version 1.2.8-1 -----
+Initial release for Cygwin 1.7.
 
 
 Cygwin port maintained by:
