@@ -6,20 +6,20 @@ advanced users who like to focus on file management, their work through
 special applications and running smart commands.
 
 Runtime requirements:
-  cygwin-1.7.0-51
+  cygwin-1.7.0-60
   cvs
   file-roller
   libexiv2_5-0.18.1-1
   libgcc1-4.3.2-2
-  libgdk_pixbuf2.0_0-2.16.2-1
-  libglib2.0_0-2.20.3-1
+  libgdk_pixbuf2.0_0-2.16.5-1
+  libglib2.0_0-2.20.4-1
   libgnome2_0-2.26.0-1
   libgnomeui2_0-2.24.1-1
   libgnomevfs2_0-2.24.1-1
-  libgsf1_114-1.14.14-1
-  libgtk2.0_0-2.16.2-1
+  libgsf1_114-1.14.15-1
+  libgtk2.0_0-2.16.5-1
   libintl8-0.17-11
-  libpango1.0_0-1.24.2-1
+  libpango1.0_0-1.24.5-1
   libpoppler4-0.10.7-1
   libstdc++6-4.3.2-2
   libtag1-1.5-10
@@ -28,10 +28,10 @@ Runtime requirements:
 
 Build requirements:
 (besides corresponding -devel packages)
-  autoconf2.5-2.63-10
+  autoconf2.5-2.64-10
   automake1.10-1.10.2-10
   binutils-2.19.51-1
-  cygport-0.9.7-1
+  cygport-0.9.9-1
   gawk-3.1.6-2
   gcc4-core-4.3.2-2
   gcc4-g++-4.3.2-2
@@ -53,15 +53,15 @@ Canonical download:
 -------------------------------------------
 
 Build instructions:
-  unpack gnome-commander-1.2.8-X-src.tar.bz2
+  unpack gnome-commander-1.2.8.1-X-src.tar.bz2
     if you use setup to install this src package, it will be
 	 unpacked under /usr/src automatically
   cd /usr/src
-  cygport ./gnome-commander-1.2.8-X.cygport all
+  cygport ./gnome-commander-1.2.8.1-X.cygport all
 
 This will create:
-  /usr/src/gnome-commander-1.2.8-X-src.tar.bz2
-  /usr/src/gnome-commander-1.2.8-X.tar.bz2
+  /usr/src/gnome-commander-1.2.8.1-X-src.tar.bz2
+  /usr/src/gnome-commander-1.2.8.1-X.tar.bz2
 
 -------------------------------------------
 
@@ -298,6 +298,9 @@ Files included in the binary package:
 ------------------
 
 Port Notes:
+
+----- version 1.2.8.1-1 -----
+Version bump.
 
 ----- version 1.2.8-1 -----
 Initial release for Cygwin 1.7.
