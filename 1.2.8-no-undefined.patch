@@ -1,5 +1,5 @@
---- origsrc/gnome-commander-1.2.8/configure.in	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/configure.in	2009-07-17 19:41:03.430038500 -0500
+--- origsrc/gnome-commander-1.2.8.5/configure.in	2010-02-13 14:39:25.000000000 -0600
++++ src/gnome-commander-1.2.8.5/configure.in	2010-05-17 02:01:46.273942800 -0500
 @@ -27,6 +27,26 @@ if test "x$GCC" = "xyes"; then
  fi
  AC_SUBST(CC_WARNINGS)
@@ -12,7 +12,7 @@
 +cygwin*|mingw*)
 +  platform_win32=yes
 +  privlibdir="${libdir}"
-+  PLUGIN_LDFLAGS="-module -avoid-version -no-undefined -export-symbols \$(top_srcdir)/src/gnome-cmd.def"
++  PLUGIN_LDFLAGS="-module -avoid-version -no-undefined -Wl,\$(top_builddir)/src/gnome-commander.exe.a"
 +  ;;
 +*)
 +  platform_win32=no
@@ -27,7 +27,7 @@
  
  dnl ===================
  dnl Gettext stuff
-@@ -299,7 +319,7 @@ Py_Exit (0);
+@@ -302,7 +322,7 @@ Py_Exit (0);
  }
  EOF
  
@@ -36,71 +36,46 @@
          ( objdump --headers --private-headers testpython.so | grep 'testpython' ) >/dev/null 2>&1; then
          result=yes
      else
---- origsrc/gnome-commander-1.2.8/libgcmd/Makefile.am	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/libgcmd/Makefile.am	2009-07-17 19:41:03.437538600 -0500
+--- origsrc/gnome-commander-1.2.8.5/libgcmd/Makefile.am	2010-01-04 16:37:54.000000000 -0600
++++ src/gnome-commander-1.2.8.5/libgcmd/Makefile.am	2010-04-30 14:08:22.986844800 -0500
 @@ -5,7 +5,7 @@ AM_CPPFLAGS = \
  	$(GNOMEUI_CFLAGS) \
  	$(GNOMEVFS_CFLAGS)
  
 -pkglib_LTLIBRARIES = libgcmd.la
-+privlib_LTLIBRARIES = libgcmd.la
++noinst_LTLIBRARIES = libgcmd.la
  
  libgcmd_la_SOURCES = \
- 	gnome-cmd-plugin.h gnome-cmd-plugin.c \
-@@ -22,4 +22,8 @@ libgcmd_la_SOURCES = \
- 
- 
- libgcmd_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
--libgcmd_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
-+libgcmd_la_LDFLAGS = -release $(VERSION)
-+
-+if PLATFORM_WIN32
-+libgcmd_la_LDFLAGS += -no-undefined -export-symbols $(top_srcdir)/src/gnome-cmd.def
-+endif
---- origsrc/gnome-commander-1.2.8/libgcmd/libgcmd-deps.h	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/libgcmd/libgcmd-deps.h	2009-07-17 19:41:03.448788800 -0500
-@@ -34,7 +34,12 @@ G_BEGIN_DECLS
- #include <libgnomevfs/gnome-vfs.h>
- #include <libgnomevfs/gnome-vfs-mime-handlers.h>
- 
-+#ifdef G_PLATFORM_WIN32
-+GtkWidget *main_win32_get_win_widget(void);
-+#define main_win_widget main_win32_get_win_widget ()
-+#else
- extern GtkWidget *main_win_widget;
-+#endif
- 
- G_END_DECLS
- 
---- origsrc/gnome-commander-1.2.8/plugins/cvs/Makefile.am	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/plugins/cvs/Makefile.am	2009-07-17 19:41:03.457538900 -0500
-@@ -19,4 +19,5 @@ libcvs_la_SOURCES = \
- 	interface.h interface.c \
+ 	gnome-cmd-plugin.h gnome-cmd-plugin.cc \
+--- origsrc/gnome-commander-1.2.8.5/plugins/cvs/Makefile.am	2010-01-04 16:37:54.000000000 -0600
++++ src/gnome-commander-1.2.8.5/plugins/cvs/Makefile.am	2010-04-30 14:08:22.993845200 -0500
+@@ -16,4 +16,5 @@ libcvs_la_SOURCES = \
+ 	interface.h interface.cc \
  	cvs-plugin.xpm close.xpm
  
 -libcvs_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
 +libcvs_la_LDFLAGS = $(PLUGIN_LDFLAGS)
-+libcvs_la_LIBADD = $(top_builddir)/libgcmd/libgcmd.la $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
---- origsrc/gnome-commander-1.2.8/plugins/fileroller/Makefile.am	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/plugins/fileroller/Makefile.am	2009-07-17 19:41:03.466289000 -0500
++libcvs_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
+--- origsrc/gnome-commander-1.2.8.5/plugins/fileroller/Makefile.am	2010-01-04 16:37:55.000000000 -0600
++++ src/gnome-commander-1.2.8.5/plugins/fileroller/Makefile.am	2010-04-30 14:08:23.000845600 -0500
 @@ -14,4 +14,5 @@ libfileroller_la_SOURCES = \
- 	file-roller-plugin.h file-roller-plugin.c \
+ 	file-roller-plugin.h file-roller-plugin.cc \
  	file-roller.xpm file-roller-small.xpm
  
 -libfileroller_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
 +libfileroller_la_LDFLAGS = $(PLUGIN_LDFLAGS)
-+libfileroller_la_LIBADD = $(top_builddir)/libgcmd/libgcmd.la $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
---- origsrc/gnome-commander-1.2.8/plugins/test/Makefile.am	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/plugins/test/Makefile.am	2009-07-17 19:41:03.473789100 -0500
++libfileroller_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
+--- origsrc/gnome-commander-1.2.8.5/plugins/test/Makefile.am	2010-01-04 16:37:55.000000000 -0600
++++ src/gnome-commander-1.2.8.5/plugins/test/Makefile.am	2010-04-30 14:08:23.007846000 -0500
 @@ -14,4 +14,5 @@ libtest_la_SOURCES = \
- 	test-plugin.h test-plugin.c \
+ 	test-plugin.h test-plugin.cc \
  	test-plugin.xpm
  
 -libtest_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
 +libtest_la_LDFLAGS = $(PLUGIN_LDFLAGS)
 +libtest_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
---- origsrc/gnome-commander-1.2.8/src/Makefile.am	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/src/Makefile.am	2009-07-17 19:40:22.059406300 -0500
+--- origsrc/gnome-commander-1.2.8.5/src/Makefile.am	2010-02-13 14:39:25.000000000 -0600
++++ src/gnome-commander-1.2.8.5/src/Makefile.am	2010-04-30 14:09:27.579539300 -0500
 @@ -99,6 +99,10 @@ gnome_commander_SOURCES += \
  endif
  
@@ -112,7 +87,7 @@
  	$(GNOMEUI_LIBS) \
  	$(GNOMEVFS_LIBS) \
  	$(EXIV2_LIBS) \
-@@ -107,14 +111,10 @@ gnome_commander_LDADD = \
+@@ -107,14 +111,12 @@ gnome_commander_LDADD = \
  	$(GSF_LIBS) \
  	$(POPPLER_LIBS) \
  	$(PYTHON_LIBS) \
@@ -127,42 +102,9 @@
 -	$(GNOMEUI_LIBS) \
 -	$(GNOMEVFS_LIBS)
 +gnome_commander_LDFLAGS = -export-dynamic
++
++if PLATFORM_WIN32
++gnome_commander_LDFLAGS += -Wl,--out-implib,gnome-commander.exe.a
++endif
  
  gcmd_block_SOURCES = block.cc
-+
-+EXTRA_DIST = gnome-cmd.def
---- origsrc/gnome-commander-1.2.8/src/gnome-cmd.def	1969-12-31 18:00:00.000000000 -0600
-+++ src/gnome-commander-1.2.8/src/gnome-cmd.def	2009-07-17 19:41:03.485039300 -0500
-@@ -0,0 +1,2 @@
-+IMPORTS
-+main_win32_get_win_widget = gnome-commander.exe.main_win32_get_win_widget
---- origsrc/gnome-commander-1.2.8/src/main.cc	2009-06-29 04:57:46.000000000 -0500
-+++ src/gnome-commander-1.2.8/src/main.cc	2009-07-17 19:41:03.496289500 -0500
-@@ -40,7 +40,6 @@ using namespace std;
- 
- 
- GnomeCmdMainWin *main_win;
--GtkWidget *main_win_widget;
- gchar *start_dir_left;
- gchar *start_dir_right;
- gchar *debug_flags;
-@@ -74,6 +73,19 @@ static const GOptionEntry options [] =
-     {NULL}
- };
- 
-+#ifdef G_PLATFORM_WIN32
-+#undef main_win_widget
-+static
-+#endif
-+GtkWidget *main_win_widget;
-+
-+#ifdef G_PLATFORM_WIN32
-+G_MODULE_EXPORT
-+GtkWidget* main_win32_get_win_widget (void)
-+{
-+    return main_win_widget;
-+}
-+#endif
- 
- int main (int argc, char *argv[])
- {
