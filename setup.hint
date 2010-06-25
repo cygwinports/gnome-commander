@@ -1,5 +1,5 @@
 category: Gnome
-requires: cvs file-roller libexiv2_6 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgnome2_0 libgnomeui2_0 libgnomevfs2_0 libgsf1_114 libgtk2.0_0 libintl8 libpango1.0_0 libpoppler5 libstdc++6 libtag1 python python-gnomevfs2
+requires: cvs file-roller libexiv2_6 libgcc1 libgdk_pixbuf2.0_0 libglib2.0_0 libgnome2_0 libgnomeui2_0 libgnomevfs2_0 libgsf1_114 libgtk2.0_0 libintl8 libpango1.0_0 libpoppler6 libstdc++6 libtag1 python python-gnomevfs2
 sdesc: "GNOME two-pane file manager"
 ldesc: "GNOME Commander is a two-pane graphical filemanager for the Gnome
 desktop environment. GNOME Commander aims to fulfill the demands of more

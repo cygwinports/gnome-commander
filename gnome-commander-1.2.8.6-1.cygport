@@ -5,8 +5,7 @@ HOMEPAGE="http://www.nongnu.org/gcmd/"
 
 PATCH_URI="
 	1.2.7-dll.patch
-	1.2.8-no-undefined.patch
-	1.2.8-vpath.patch
+	1.2.8.6-no-undefined.patch
 	1.2.8-stdio-compile.patch
 "
 DIFF_EXCLUDES="README"

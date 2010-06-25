@@ -1,5 +1,5 @@
---- origsrc/gnome-commander-1.2.8.5/configure.in	2010-02-13 14:39:25.000000000 -0600
-+++ src/gnome-commander-1.2.8.5/configure.in	2010-05-17 02:01:46.273942800 -0500
+--- origsrc/gnome-commander-1.2.8.6/configure.in	2010-06-01 14:07:14.000000000 -0500
++++ src/gnome-commander-1.2.8.6/configure.in	2010-06-25 02:47:41.525811400 -0500
 @@ -27,6 +27,26 @@ if test "x$GCC" = "xyes"; then
  fi
  AC_SUBST(CC_WARNINGS)
@@ -36,8 +36,8 @@
          ( objdump --headers --private-headers testpython.so | grep 'testpython' ) >/dev/null 2>&1; then
          result=yes
      else
---- origsrc/gnome-commander-1.2.8.5/libgcmd/Makefile.am	2010-01-04 16:37:54.000000000 -0600
-+++ src/gnome-commander-1.2.8.5/libgcmd/Makefile.am	2010-04-30 14:08:22.986844800 -0500
+--- origsrc/gnome-commander-1.2.8.6/libgcmd/Makefile.am	2010-03-04 14:06:22.000000000 -0600
++++ src/gnome-commander-1.2.8.6/libgcmd/Makefile.am	2010-06-25 02:47:41.529811600 -0500
 @@ -5,7 +5,7 @@ AM_CPPFLAGS = \
  	$(GNOMEUI_CFLAGS) \
  	$(GNOMEVFS_CFLAGS)
@@ -47,8 +47,8 @@
  
  libgcmd_la_SOURCES = \
  	gnome-cmd-plugin.h gnome-cmd-plugin.cc \
---- origsrc/gnome-commander-1.2.8.5/plugins/cvs/Makefile.am	2010-01-04 16:37:54.000000000 -0600
-+++ src/gnome-commander-1.2.8.5/plugins/cvs/Makefile.am	2010-04-30 14:08:22.993845200 -0500
+--- origsrc/gnome-commander-1.2.8.6/plugins/cvs/Makefile.am	2010-03-04 14:06:22.000000000 -0600
++++ src/gnome-commander-1.2.8.6/plugins/cvs/Makefile.am	2010-06-25 02:47:41.533811900 -0500
 @@ -16,4 +16,5 @@ libcvs_la_SOURCES = \
  	interface.h interface.cc \
  	cvs-plugin.xpm close.xpm
@@ -56,8 +56,8 @@
 -libcvs_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
 +libcvs_la_LDFLAGS = $(PLUGIN_LDFLAGS)
 +libcvs_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
---- origsrc/gnome-commander-1.2.8.5/plugins/fileroller/Makefile.am	2010-01-04 16:37:55.000000000 -0600
-+++ src/gnome-commander-1.2.8.5/plugins/fileroller/Makefile.am	2010-04-30 14:08:23.000845600 -0500
+--- origsrc/gnome-commander-1.2.8.6/plugins/fileroller/Makefile.am	2010-03-04 14:06:22.000000000 -0600
++++ src/gnome-commander-1.2.8.6/plugins/fileroller/Makefile.am	2010-06-25 02:47:41.537812100 -0500
 @@ -14,4 +14,5 @@ libfileroller_la_SOURCES = \
  	file-roller-plugin.h file-roller-plugin.cc \
  	file-roller.xpm file-roller-small.xpm
@@ -65,8 +65,8 @@
 -libfileroller_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
 +libfileroller_la_LDFLAGS = $(PLUGIN_LDFLAGS)
 +libfileroller_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
---- origsrc/gnome-commander-1.2.8.5/plugins/test/Makefile.am	2010-01-04 16:37:55.000000000 -0600
-+++ src/gnome-commander-1.2.8.5/plugins/test/Makefile.am	2010-04-30 14:08:23.007846000 -0500
+--- origsrc/gnome-commander-1.2.8.6/plugins/test/Makefile.am	2010-03-04 14:06:22.000000000 -0600
++++ src/gnome-commander-1.2.8.6/plugins/test/Makefile.am	2010-06-25 02:47:41.541812300 -0500
 @@ -14,4 +14,5 @@ libtest_la_SOURCES = \
  	test-plugin.h test-plugin.cc \
  	test-plugin.xpm
@@ -74,37 +74,16 @@
 -libtest_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
 +libtest_la_LDFLAGS = $(PLUGIN_LDFLAGS)
 +libtest_la_LIBADD = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS)
---- origsrc/gnome-commander-1.2.8.5/src/Makefile.am	2010-02-13 14:39:25.000000000 -0600
-+++ src/gnome-commander-1.2.8.5/src/Makefile.am	2010-04-30 14:09:27.579539300 -0500
-@@ -99,6 +99,10 @@ gnome_commander_SOURCES += \
- endif
- 
- gnome_commander_LDADD = \
-+	dialogs/libgcmd-dialogs.a \
-+	tags/libgcmd-tags.a \
-+	intviewer/libgviewer.a \
-+	$(top_builddir)/libgcmd/libgcmd.la \
- 	$(GNOMEUI_LIBS) \
- 	$(GNOMEVFS_LIBS) \
- 	$(EXIV2_LIBS) \
-@@ -107,14 +111,12 @@ gnome_commander_LDADD = \
- 	$(GSF_LIBS) \
- 	$(POPPLER_LIBS) \
+--- origsrc/gnome-commander-1.2.8.6/src/Makefile.am	2010-06-01 13:53:06.000000000 -0500
++++ src/gnome-commander-1.2.8.6/src/Makefile.am	2010-06-25 02:49:36.024360300 -0500
+@@ -113,4 +113,10 @@ gnome_commander_LDADD = \
  	$(PYTHON_LIBS) \
--	$(PYTHON_EXTRA_LIBS) \
--	$(top_builddir)/libgcmd/libgcmd.la \
--	dialogs/libgcmd-dialogs.a \
--	tags/libgcmd-tags.a \
--	intviewer/libgviewer.a
-+	$(PYTHON_EXTRA_LIBS)
+ 	$(PYTHON_EXTRA_LIBS)
  
--gnome_commander_LDFLAGS = \
--	$(GNOMEUI_LIBS) \
--	$(GNOMEVFS_LIBS)
 +gnome_commander_LDFLAGS = -export-dynamic
 +
 +if PLATFORM_WIN32
 +gnome_commander_LDFLAGS += -Wl,--out-implib,gnome-commander.exe.a
 +endif
- 
++
  gcmd_block_SOURCES = block.cc
