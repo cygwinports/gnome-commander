@@ -25,6 +25,15 @@
  dnl Gettext stuff
  dnl ===================
  
+@@ -302,7 +320,7 @@ Py_Exit (0);
+ }
+ EOF
+ 
+-    if ${CC} $PYTHON_CFLAGS $PYTHON_LIBS $PYTHON_EXTRA_LIBS -fPIC -shared -o testpython.so testpython.c -Wl,-soname,testpython.so >/dev/null 2>&1 && \
++    if ${CC} $PYTHON_CFLAGS -fPIC -shared -o testpython.so testpython.c -Wl,-soname,testpython.so $PYTHON_LIBS $PYTHON_EXTRA_LIBS >/dev/null 2>&1 && \
+         ( objdump --headers --private-headers testpython.so | grep 'testpython' ) >/dev/null 2>&1; then
+         result=yes
+     else
 --- origsrc/gnome-commander-1.2.8.8/libgcmd/Makefile.am	2010-09-08 16:41:13.000000000 -0500
 +++ src/gnome-commander-1.2.8.8/libgcmd/Makefile.am	2010-09-21 00:24:14.175226100 -0500
 @@ -5,7 +5,7 @@ AM_CPPFLAGS = \
