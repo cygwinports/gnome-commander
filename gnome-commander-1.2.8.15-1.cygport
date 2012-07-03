@@ -7,5 +7,8 @@ PATCH_URI="
 	1.2.7-dll.patch
 	1.2.8.8-no-undefined.patch
 	1.2.8-stdio-compile.patch
+	1.2.8.15-poppler020.patch
 "
 DIFF_EXCLUDES="README"
+
+KEEP_LA_FILES="none"
