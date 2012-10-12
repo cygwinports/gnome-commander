@@ -1,0 +1,24 @@
+inherit gnome2 python
+
+NAME="gnome-commander"
+VERSION=1.2.8.15
+RELEASE=3
+CATEGORY="Gnome"
+SUMMARY="GNOME two-pane file manager"
+DESCRIPTION="GNOME Commander is a two-pane graphical filemanager for the Gnome
+desktop environment. GNOME Commander aims to fulfill the demands of more
+advanced users who like to focus on file management, their work through
+special applications and running smart commands."
+HOMEPAGE="http://www.nongnu.org/gcmd/"
+
+PATCH_URI="
+	1.2.7-dll.patch
+	1.2.8.8-no-undefined.patch
+	1.2.8-stdio-compile.patch
+	1.2.8.15-poppler020.patch
+"
+DIFF_EXCLUDES="README"
+
+REQUIRES="file-roller python-gnomevfs"
+
+KEEP_LA_FILES="none"
