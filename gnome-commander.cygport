@@ -2,7 +2,7 @@ inherit gnome2 python
 
 NAME="gnome-commander"
 VERSION=1.2.8.15
-RELEASE=3
+RELEASE=4
 CATEGORY="Gnome"
 SUMMARY="GNOME two-pane file manager"
 DESCRIPTION="GNOME Commander is a two-pane graphical filemanager for the Gnome
@@ -19,6 +19,4 @@ PATCH_URI="
 "
 DIFF_EXCLUDES="README"
 
-REQUIRES="file-roller python-gnomevfs"
-
-KEEP_LA_FILES="none"
+REQUIRES="file-roller"
