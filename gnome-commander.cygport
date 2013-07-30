@@ -2,8 +2,8 @@ inherit gnome2 python
 
 NAME="gnome-commander"
 VERSION=1.2.8.15
-RELEASE=4
-CATEGORY="Gnome"
+RELEASE=5
+CATEGORY="GNOME"
 SUMMARY="GNOME two-pane file manager"
 DESCRIPTION="GNOME Commander is a two-pane graphical filemanager for the Gnome
 desktop environment. GNOME Commander aims to fulfill the demands of more
@@ -12,10 +12,12 @@ special applications and running smart commands."
 HOMEPAGE="http://www.nongnu.org/gcmd/"
 
 PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/gnome-commander.git/plain/gnome-commander-1.2.8.15-gcc47.patch
+	http://pkgs.fedoraproject.org/cgit/gnome-commander.git/plain/gnome-commander-1.2.8.15-poppler020.patch
+	http://pkgs.fedoraproject.org/cgit/gnome-commander.git/plain/gnome-commander-1.2.8.15-newgsf.patch
 	1.2.7-dll.patch
 	1.2.8.8-no-undefined.patch
 	1.2.8-stdio-compile.patch
-	1.2.8.15-poppler020.patch
 "
 DIFF_EXCLUDES="README"
 
