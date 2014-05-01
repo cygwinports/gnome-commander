@@ -1,7 +1,7 @@
 inherit gnome2 python
 
 NAME="gnome-commander"
-VERSION=1.2.8.17
+VERSION=1.4.1
 RELEASE=1
 CATEGORY="GNOME"
 SUMMARY="GNOME two-pane file manager"
@@ -12,9 +12,7 @@ special applications and running smart commands."
 HOMEPAGE="http://gcmd.github.io/"
 
 PATCH_URI="
-	1.2.7-dll.patch
-	1.2.8.8-no-undefined.patch
-	1.2.8-stdio-compile.patch
+	1.4.1-no-undefined.patch
 "
 DIFF_EXCLUDES="README"
 

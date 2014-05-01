@@ -1,5 +1,5 @@
---- origsrc/gnome-commander-1.2.8.8/configure.in	2010-09-08 16:41:13.000000000 -0500
-+++ src/gnome-commander-1.2.8.8/configure.in	2010-09-21 00:23:53.700106900 -0500
+--- origsrc/gnome-commander-1.4.1/configure.ac	2014-04-05 02:38:11.000000000 -0500
++++ src/gnome-commander-1.4.1/configure.ac	2014-04-30 20:40:34.306555500 -0500
 @@ -29,6 +29,24 @@ AC_SUBST(CC_WARNINGS)
  
  
@@ -25,7 +25,7 @@
  dnl Gettext stuff
  dnl ===================
  
-@@ -302,7 +320,7 @@ Py_Exit (0);
+@@ -328,7 +346,7 @@ Py_Exit (0);
  }
  EOF
  
@@ -34,8 +34,8 @@
          ( objdump --headers --private-headers testpython.so | grep 'testpython' ) >/dev/null 2>&1; then
          result=yes
      else
---- origsrc/gnome-commander-1.2.8.8/libgcmd/Makefile.am	2010-09-08 16:41:13.000000000 -0500
-+++ src/gnome-commander-1.2.8.8/libgcmd/Makefile.am	2010-09-21 00:24:14.175226100 -0500
+--- origsrc/gnome-commander-1.4.1/libgcmd/Makefile.am	2014-03-13 16:13:19.000000000 -0500
++++ src/gnome-commander-1.4.1/libgcmd/Makefile.am	2014-04-30 20:41:13.435024200 -0500
 @@ -5,7 +5,7 @@ AM_CPPFLAGS = \
  	$(GNOMEUI_CFLAGS) \
  	$(GNOMEVFS_CFLAGS)
@@ -45,40 +45,37 @@
  
  libgcmd_la_SOURCES = \
  	gnome-cmd-plugin.h gnome-cmd-plugin.cc \
---- origsrc/gnome-commander-1.2.8.8/plugins/cvs/Makefile.am	2010-09-08 16:41:13.000000000 -0500
-+++ src/gnome-commander-1.2.8.8/plugins/cvs/Makefile.am	2010-09-21 00:19:48.929922300 -0500
-@@ -16,4 +16,4 @@ libcvs_la_SOURCES = \
- 	interface.h interface.cc \
- 	cvs-plugin.xpm close.xpm
- 
--libcvs_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS) -module -avoid-version
-+libcvs_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS) -module -avoid-version $(NO_UNDEFINED)
---- origsrc/gnome-commander-1.2.8.8/plugins/fileroller/Makefile.am	2010-09-08 16:41:13.000000000 -0500
-+++ src/gnome-commander-1.2.8.8/plugins/fileroller/Makefile.am	2010-09-21 00:19:59.763718600 -0500
-@@ -14,4 +14,4 @@ libfileroller_la_SOURCES = \
+--- origsrc/gnome-commander-1.4.1/plugins/fileroller/Makefile.am	2014-03-13 16:13:19.000000000 -0500
++++ src/gnome-commander-1.4.1/plugins/fileroller/Makefile.am	2014-04-30 20:41:33.152028000 -0500
+@@ -14,6 +14,6 @@ libfileroller_la_SOURCES = \
  	file-roller-plugin.h file-roller-plugin.cc \
  	file-roller.xpm file-roller-small.xpm
  
 -libfileroller_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS) -module -avoid-version
 +libfileroller_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS) -module -avoid-version $(NO_UNDEFINED)
---- origsrc/gnome-commander-1.2.8.8/plugins/test/Makefile.am	2010-09-08 16:41:13.000000000 -0500
-+++ src/gnome-commander-1.2.8.8/plugins/test/Makefile.am	2010-09-21 00:20:04.020151700 -0500
-@@ -14,4 +14,4 @@ libtest_la_SOURCES = \
+ 
+ -include $(top_srcdir)/git.mk
+--- origsrc/gnome-commander-1.4.1/plugins/test/Makefile.am	2014-03-13 16:13:19.000000000 -0500
++++ src/gnome-commander-1.4.1/plugins/test/Makefile.am	2014-04-30 20:41:43.754374300 -0500
+@@ -14,6 +14,6 @@ libtest_la_SOURCES = \
  	test-plugin.h test-plugin.cc \
  	test-plugin.xpm
  
 -libtest_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS) -module -avoid-version
 +libtest_la_LDFLAGS = $(GNOMEUI_LIBS) $(GNOMEVFS_LIBS) -module -avoid-version $(NO_UNDEFINED)
---- origsrc/gnome-commander-1.2.8.8/src/Makefile.am	2010-09-08 16:41:13.000000000 -0500
-+++ src/gnome-commander-1.2.8.8/src/Makefile.am	2010-09-21 00:20:56.714027200 -0500
-@@ -113,4 +113,10 @@ gnome_commander_LDADD = \
+ 
+ -include $(top_srcdir)/git.mk
+--- origsrc/gnome-commander-1.4.1/src/Makefile.am	2014-03-25 09:55:07.000000000 -0500
++++ src/gnome-commander-1.4.1/src/Makefile.am	2014-04-30 20:42:31.235403600 -0500
+@@ -112,6 +112,11 @@ gnome_commander_LDADD = \
  	$(PYTHON_LIBS) \
  	$(PYTHON_EXTRA_LIBS)
  
 +gnome_commander_LDFLAGS = -export-dynamic
-+
 +if PLATFORM_WIN32
 +gnome_commander_LDFLAGS += -Wl,--out-implib,gnome-commander.exe.a
 +endif
 +
  gcmd_block_SOURCES = block.cc
+ 
+ -include $(top_srcdir)/git.mk
