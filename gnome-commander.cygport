@@ -1,7 +1,7 @@
 inherit gnome2 python
 
 NAME="gnome-commander"
-VERSION=1.4.8
+VERSION=1.6.3
 RELEASE=1
 CATEGORY="GNOME"
 SUMMARY="GNOME two-pane file manager"
